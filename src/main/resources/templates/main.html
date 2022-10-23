@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Coenlog</title>
-</head>
-<body>
-<p th:text="${data}">아무거토없는 메인</p>
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/bloglayout}">
+
+<div layout:fragment="content" class="content">
+    <div class="container center_div w-50 mt-4">
+        <p th:text="|RequestURI = ${data}|"></p>
+        <p>Main!!</p>
+    </div>
+</div>
 </html>
+
+
+
+
