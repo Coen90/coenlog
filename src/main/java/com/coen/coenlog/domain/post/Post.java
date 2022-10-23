@@ -1,6 +1,7 @@
 package com.coen.coenlog.domain.post;
 
 import com.coen.coenlog.domain.base.BaseEntity;
+import com.coen.coenlog.domain.member.Member;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
+@Table(name = "post")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post extends BaseEntity {
 
@@ -22,6 +24,10 @@ public class Post extends BaseEntity {
 
     @Lob
     private String content;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 
     @Builder
     public Post (String title, String content) {
