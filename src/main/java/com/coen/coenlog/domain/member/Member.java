@@ -16,6 +16,9 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
+    @Column(unique = true, nullable = false, length = 50)
+    private String email;
+
     @Column(nullable = false, length = 20)
     private String username;
 
@@ -27,10 +30,20 @@ public class Member {
     private Role role;
 
     @Builder
-    public Member(String username, String password, Role role) {
+    public Member (String email, String username, String password, Role role) {
+        this.email = email;
         this.username = username;
         this.password = password;
         this.role = role;
+    }
+
+    public static Member createMember(Member member) {
+        return Member.builder()
+                .email(member.getEmail())
+                .username(member.getUsername())
+                .password(member.getPassword())
+                .role(member.getRole())
+                .build();
     }
 
 }
