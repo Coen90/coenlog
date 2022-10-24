@@ -3,13 +3,12 @@ package com.coen.coenlog.service.post;
 import com.coen.coenlog.domain.post.Post;
 import com.coen.coenlog.exception.EntityNotFoundException;
 import com.coen.coenlog.exception.ErrorCode;
-import com.coen.coenlog.service.repository.PostRepository;
+import com.coen.coenlog.repository.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

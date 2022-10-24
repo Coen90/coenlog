@@ -1,4 +1,4 @@
-package com.coen.coenlog.service.repository;
+package com.coen.coenlog.repository.post;
 
 import com.coen.coenlog.domain.post.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
