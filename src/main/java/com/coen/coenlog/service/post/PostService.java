@@ -1,6 +1,8 @@
 package com.coen.coenlog.service.post;
 
 import com.coen.coenlog.domain.post.Post;
+import com.coen.coenlog.exception.EntityNotFoundException;
+import com.coen.coenlog.exception.ErrorCode;
 import com.coen.coenlog.service.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,14 +30,14 @@ public class PostService {
     public List<Post> getPosts() {
         List<Post> postList = postRepository.findAll();
         if (postList == null) {
-            throw new RuntimeException("데이터가 없어요.");
+            throw new EntityNotFoundException(ErrorCode.POSTS_NOT_EXIST);
         }
         return postList;
     }
 
     public Post getPost(Long postId) {
         return postRepository.findById(postId)
-                .orElseThrow(() -> new RuntimeException("찾으시는 포스트가 사라졌어요."));
+                .orElseThrow(() -> new EntityNotFoundException(ErrorCode.POST_NOT_EXIST));
     }
 
 }
