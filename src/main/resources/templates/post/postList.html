@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/bloglayout}">
+
+<div layout:fragment="content" class="content">
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="post : ${postList}">
+            <td th:text="${postStat.size - postStat.index}"></td>
+            <td th:text="${post.title}"></td>
+            <td th:text="${post.createBy}"></td>
+            <td th:text="${post.createTime}"></td>
+        </tr>
+    </table>
+</div>
+</html>
