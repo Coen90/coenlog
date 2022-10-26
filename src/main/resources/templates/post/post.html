@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/bloglayout}">
+
+<div layout:fragment="content" class="container center_div w-50 mt-4">
+    <h1 th:text="${post.title}">제목</h1>
+    <h6 th:text="${post.createBy}">작성자</h6>
+    <h6 th:text="${post.createTime}">작성일</h6>
+    <div th:text="${post.content}"></div>
+</div>
+</html>

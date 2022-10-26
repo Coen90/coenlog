@@ -6,14 +6,14 @@
 <div layout:fragment="content" class="content">
     <table>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
         </tr>
         <tr th:each="post : ${postList}">
             <td th:text="${postStat.size - postStat.index}"></td>
-            <td th:text="${post.title}"></td>
+            <td><a th:text="${post.title}" th:href="@{/post/{postId}(postId = ${post.postId})}"></a></td>
             <td th:text="${post.createBy}"></td>
             <td th:text="${post.createTime}"></td>
         </tr>

@@ -1,6 +1,7 @@
 package com.coen.coenlog.service.post;
 
 import com.coen.coenlog.domain.post.Post;
+import com.coen.coenlog.dto.post.PostResponseDto;
 import com.coen.coenlog.exception.EntityNotFoundException;
 import com.coen.coenlog.exception.ErrorCode;
 import com.coen.coenlog.repository.post.PostRepository;
@@ -34,9 +35,10 @@ public class PostService {
         return postList;
     }
 
-    public Post getPost(Long postId) {
-        return postRepository.findById(postId)
+    public PostResponseDto getPost(Long postId) {
+        Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new EntityNotFoundException(ErrorCode.POST_NOT_EXIST));
+        return PostResponseDto.of(post);
     }
 
 }
