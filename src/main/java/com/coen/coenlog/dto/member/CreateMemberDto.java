@@ -12,8 +12,11 @@ import lombok.Setter;
 public class CreateMemberDto {
 
     public String email;
+    
     public String username;
+    
     public String password;
+    
     public Role role;
 
     @Builder
